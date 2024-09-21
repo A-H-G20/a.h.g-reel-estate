@@ -1,0 +1,189 @@
+/* Reset default margin and padding */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+header {
+  background-color: #002147; /* Dark blue */
+  color: white;
+  padding: 15px 20px; /* Padding around the header */
+  display: flex;
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
+}
+
+nav {
+  display: flex;
+  align-items: center; /* Align items vertically */
+  justify-content: center; /* Center the nav items */
+}
+
+nav li {
+  list-style: none; /* Remove bullets from list items */
+  margin: 0 10px; /* Space between links */
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #ffdd00; /* Golden highlight on hover */
+}
+
+.nav-menu {
+  margin: 0 10px; /* Space between select menus and links */
+  padding: 10px; /* Padding inside the select */
+  border: none; /* Remove default border */
+  border-radius: 4px; /* Rounded corners */
+  background-color: #005599; /* Blue background */
+  color: white; /* Text color */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+.nav-menu option {
+  background-color: #fff; /* Background for options */    
+  color: #333; /* Text color for options */
+}
+
+  .user-info {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Form Elements */
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  input[type="text"], input[type="file"], select {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  input[type="file"] {
+    padding: 10px 0;
+  }
+  
+  input[type="submit"] {
+    background-color: 002147;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: 002147;
+  }
+  
+  /* Profile Picture */
+  
+  .profile-picture {
+    width: 100px;
+    height: 100px;
+    margin: 20px auto;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  
+  .profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Error Messages */
+  
+/* Change Password Popup */
+
+#change-password-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: none;
+  }
+  
+  #change-password-form h2 {
+    margin-top: 0;
+  }
+  
+  #change-password-form label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  #change-password-form input[type="password"] {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  #change-password-form button[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #change-password-form button[type="submit"]:hover {
+    background-color: #3e8e41;
+  }
+  
+  #change-password-form #cancel-btn {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  #change-password-form #cancel-btn:hover {
+    background-color: #f9f9f9;
+  }
+  
+  /* Show the popup when the button is clicked */
+  
+  #change-password-btn:focus + #change-password-form {
+    display: block;
+  }
+  #change-password-btn {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #change-password-btn:hover {
+    background-color: #3e8e41;
+  }

@@ -1,0 +1,129 @@
+/* Reset some default styles */
+body, form, div, p, ul, li {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+body {
+    background-color: #f3f4f6;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+
+header {
+    background-color: #002147; /* Dark blue */
+    color: white;
+    padding: 15px 20px; /* Padding around the header */
+    display: flex;
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    width: 97%;
+}
+
+nav {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    justify-content: center; /* Center the nav items */
+}
+
+nav li {
+    list-style: none; /* Remove bullets from list items */
+    margin: 0 10px; /* Space between links */
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #ffdd00; /* Golden highlight on hover */
+}
+
+.nav-menu {
+    margin: 0 10px; /* Space between select menus and links */
+    padding: 10px; /* Padding inside the select */
+    border: none; /* Remove default border */
+    border-radius: 4px; /* Rounded corners */
+    background-color: #005599; /* Blue background */
+    color: white; /* Text color */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.nav-menu option {
+    background-color: #fff; /* Background for options */    
+    color: #333; /* Text color for options */
+}
+
+/* User Info Container */
+.user-info {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Wallet Form Container */
+.wallet-form-container {
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    border: 2px solid #002147;
+    transition: box-shadow 0.3s;
+    margin-top: 20px;
+}
+
+.wallet-form-container:hover {
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+}
+
+form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 22px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+    color: #333;
+}
+
+.amount {
+    font-size: 20px;
+    color: #27ae60;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+p {
+    margin: 10px 0;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+}
+
+strong {
+    color: #d35400;
+    font-weight: bold;
+}
