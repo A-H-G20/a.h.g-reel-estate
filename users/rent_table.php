@@ -6,19 +6,31 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: ../login.php");
     exit();
 }
+
+require 'config.php'; // Database connection
+
+// Fetch the reserved items from the buy_reserved table
+$user_id = $_SESSION['user_id'];
+$query = "
+    SELECT br.rental_id, b.image1, b.category, b.price 
+    FROM rental_reserved br
+    JOIN rental b ON br.rental_id = b.rental_id
+    WHERE br.users_id = ?
+";
+$stmt = $mysqli->prepare($query);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/dashboard.css">
-    <title>Home Page</title>
-    <script src="js/header.js"></script>
+    <title>Your Reserved Items</title>
+    <link rel="stylesheet" href="css/item_table.css"> <!-- Link to your CSS file -->
 </head>
-
 <body>
 <header>
         <nav>
@@ -56,19 +68,43 @@ if (!isset($_SESSION['user_id'])) {
             <li><a href="../logout.php">Logout</a></li>
         </nav>
     </header>
-<br><br><br>
-    <div class="container">
-        <div class="image">
-            <img src="../image/local_image/hero-banner.png" alt="">
-        </div>
-        <div class="info">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, minima quasi? Quibusdam fugit adipisci corrupti cum? Unde distinctio velit repellendus! Provident sapiente ipsum quibusdam, tempore velit fuga veniam quos dolor.
-        </div>
-    </div>
+<h2>Your Reserved Items</h2>
 
-    <footer>
-        <p>A.H.G Real Estate Website</p>
-    </footer>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php while ($row = $result->fetch_assoc()): ?>
+            <tr>
+                <td><img src="../image/<?php echo htmlspecialchars($row['image1']); ?>" alt="Item Image" width="100"></td>
+                <td><?php echo htmlspecialchars($row['category']); ?></td>
+                <td>$<?php echo number_format($row['price'], 2); ?></td>
+                <td>
+                    <form action="delete_rental_reserved" method="POST">
+                        <input type="hidden" name="id" value="<?php echo $row['rental_id']; ?>">
+                        <button type="submit" onclick="return confirm('Are you sure you want to delete this item?');">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        <?php endwhile; ?>
+        <?php if ($result->num_rows === 0): ?>
+            <tr>
+                <td colspan="4">No reserved items found.</td>
+            </tr>
+        <?php endif; ?>
+    </tbody>
+</table>
+
+<?php
+$stmt->close();
+$mysqli->close();
+?>
+<script src="js/header.js"></script>
 </body>
-
 </html>
