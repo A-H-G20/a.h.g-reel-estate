@@ -66,7 +66,7 @@ $rentalResult = $mysqli->query($rentalQuery);
                
                 <label><?php echo "$" . number_format($rentalItem['price'], 2); ?></label>
               
-                <button type="button" onclick="location.href='rental_details.php?id=<?php echo $rentalItem['rental_id']; ?>'">More details</button>
+                <button type="button" onclick="location.href='buy_details.php?id=<?php echo $rentalItem['buy_id']; ?>'">More details</button>
             </div>
         <?php endwhile; ?>
     <?php else: ?>
