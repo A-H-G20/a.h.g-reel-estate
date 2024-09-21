@@ -25,7 +25,7 @@ $rentalResult = $mysqli->query($rentalQuery);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/item.css">
     <title>Vacation rentals</title>
-   <script src="../js/header.js"></script>
+
 </head>
 <body>
 <header>
@@ -33,24 +33,24 @@ $rentalResult = $mysqli->query($rentalQuery);
             <li><a href="../dashboard.php">Home</a></li>
             <select class="nav-menu" id="Rentel-select" onchange="navigateToPage(this)">
                 <option selected disabled>Rentel</option>
-                <option value="../houses.php">Houses</option>
-                <option value="../vacation_rentals.php">Vacation Rentals</option>
-                <option value="../studios.php">Studios</option>
-                <option value="../duplexes.php">Duplexes</option>
-                <option value="../basement_apartments.php">Basement Apartments</option>
-                <option value="../farmhouses.php">Farmhouses</option>
-                <option value="../swimming_pool.php">Swimming Pool</option>           
+                <option value="houses.php">Houses</option>
+                <option value="vacation_rentals.php">Vacation Rentals</option>
+                <option value="studios.php">Studios</option>
+                <option value="duplexes.php">Duplexes</option>
+                <option value="basement_apartments.php">Basement Apartments</option>
+                <option value="farmhouses.php">Farmhouses</option>
+                <option value="swimming_pool.php">Swimming Pool</option>           
             </select>
 
             <select class="nav-menu" id="Buy-select" onchange="navigateToPage(this)">
                 <option selected disabled>Buy</option>
-                <option value="buy/houses.php">Houses</option>
-                <option value="buy/vacation_rentals.php">Vacation Rentals</option>
-                <option value="buy/studios.php">Studios</option>
-                <option value="buy/duplexes.php">Duplexes</option>
-                <option value="buy/basement_apartments.php">Basement Apartments</option>
-                <option value="buy/farmhouses.php">Farmhouses</option>
-                <option value="buy/swimming_pool.php">Swimming Pool</option>           
+                <option value="../buy/houses.php">Houses</option>
+                <option value="../buy/vacation_rentals.php">Vacation Rentals</option>
+                <option value="../buy/studios.php">Studios</option>
+                <option value="../buy/duplexes.php">Duplexes</option>
+                <option value="../buy/basement_apartments.php">Basement Apartments</option>
+                <option value="../buy/farmhouses.php">Farmhouses</option>
+                <option value="../buy/swimming_pool.php">Swimming Pool</option>           
             </select>
             <li><a href="../wallet.php">Wallet</a></li>
             <li><a href="../ask_for_realtor.php">Ask to be realtor</a></li>

@@ -28,18 +28,18 @@ $rentalResult = $mysqli->query($rentalQuery);
    <script src="../js/header.js"></script>
 </head>
 <body>
-    <header>
+<header>
         <nav>
             <li><a href="../dashboard.php">Home</a></li>
             <select class="nav-menu" id="Rentel-select" onchange="navigateToPage(this)">
                 <option selected disabled>Rentel</option>
-                <option value="../rental/houses.php">Houses</option>
-                <option value="../rental/vacation_rentals.php">Vacation Rentals</option>
-                <option value="../rental/studios.php">Studios</option>
-                <option value="../rental/duplexes.php">Duplexes</option>
-                <option value="../rental/basement_apartments.php">Basement Apartments</option>
-                <option value="../rental/farmhouses.php">Farmhouses</option>
-                <option value="../rental/swimming_pool.php">Swimming Pool</option>           
+                <option value="../rentel/houses.php">Houses</option>
+                <option value="../rentel/vacation_rentals.php">Vacation Rentals</option>
+                <option value="../rentel/studios.php">Studios</option>
+                <option value="../rentel/duplexes.php">Duplexes</option>
+                <option value="../rentel/basement_apartments.php">Basement Apartments</option>
+                <option value="../rentel/farmhouses.php">Farmhouses</option>
+                <option value="../rentel/swimming_pool.php">Swimming Pool</option>           
             </select>
 
             <select class="nav-menu" id="Buy-select" onchange="navigateToPage(this)">
@@ -52,6 +52,12 @@ $rentalResult = $mysqli->query($rentalQuery);
                 <option value="farmhouses.php">Farmhouses</option>
                 <option value="swimming_pool.php">Swimming Pool</option>           
             </select>
+            <select class="nav-menu" id="Buy-select" onchange="navigateToPage(this)">
+                <option selected disabled>My reserved</option>
+                <option value="../rent_table.php">Rent Reserved</option>
+                <option value="../buy_table.php">Buy Reserved</option>      
+            </select>
+            
             <li><a href="../wallet.php">Wallet</a></li>
             <li><a href="../ask_for_realtor.php">Ask to be realtor</a></li>
             <li><a href="../settings.php">Settings</a></li>

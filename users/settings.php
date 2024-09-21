@@ -50,7 +50,7 @@ $user = mysqli_fetch_assoc($result);
             </select>
             
             <li><a href="wallet.php">Wallet</a></li>
-            <li><a href="ask_for_realtor.php">Ask to be realtor</a></li>
+            <li><a href="ask_for_realtor.php">Realtor</a></li>
             <li><a href="settings.php">Settings</a></li>
             <li><a href="../logout.php">Logout</a></li>
         </nav>
