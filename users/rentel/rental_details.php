@@ -9,15 +9,23 @@ if (!isset($_SESSION['user_id']) || trim($_SESSION['user_id']) == '') {
 
 require '../config.php'; // Database connection
 
+// Include PHPMailer classes at the top
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require '../../PHPMailer/src/Exception.php';
+require '../../PHPMailer/src/PHPMailer.php';
+require '../../PHPMailer/src/SMTP.php';
+
 // Check if rental ID is passed via URL
 if (isset($_GET['id'])) {
     $rental_id = (int) $_GET['id']; // Convert ID to integer to avoid SQL injection
 
-    // Fetch the item's details from the database
-    $query = "SELECT b.image1, b.image2, b.image3, b.price, b.description, u.name as realtor_name 
-              FROM rental b 
-              JOIN users u ON b.user_id = u.id 
-              WHERE b.rental_id = ?";
+    // Fetch the rental item's details from the database
+    $query = "SELECT r.image1, r.image2, r.image3, r.price, r.description, u.name as realtor_name 
+              FROM rental r 
+              JOIN users u ON r.user_id = u.id 
+              WHERE r.rental_id = ?";
     $stmt = mysqli_prepare($mysqli, $query);
     mysqli_stmt_bind_param($stmt, 'i', $rental_id);
     mysqli_stmt_execute($stmt);
@@ -28,15 +36,91 @@ if (isset($_GET['id'])) {
         echo 'Item not found!';
         exit();
     }
+
+    // Check if the item is already reserved
+    $reservedCheckQuery = "SELECT COUNT(*) FROM rental_reserved WHERE rental_id = ?";
+    $stmt = $mysqli->prepare($reservedCheckQuery);
+    $stmt->bind_param("i", $rental_id);
+    $stmt->execute();
+    $stmt->bind_result($reservedCount);
+    $stmt->fetch();
+    $stmt->close();
+
+    $isReserved = $reservedCount > 0; // Check if the item is already reserved
 } else {
     echo 'Invalid item ID!';
     exit();
 }
 
-// Handle form submission for adding to cart
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Logic to add the item to the cart (to be implemented)
-    echo '<script>alert("Item added to cart successfully!");</script>';
+// Handle form submission for buying
+$purchaseSuccessful = false; // Track if purchase was successful
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && !$isReserved) {
+    $user_id = $_SESSION['user_id'];
+
+    // Fetch the user's wallet balance
+    $wallet_query = "SELECT amount, email, name FROM wallet INNER JOIN users ON wallet.users_id = users.id WHERE wallet.users_id = ?";
+    $stmt = $mysqli->prepare($wallet_query);
+    $stmt->bind_param("i", $user_id);
+    $stmt->execute();
+    $stmt->bind_result($amount, $email, $name);
+    $stmt->fetch();
+    $stmt->close();
+
+    if ($amount < $rentalItem['price']) {
+        // Set the message
+        echo "You don't have enough amount in your wallet.";
+        header("Location: javascript:history.back();");
+    } else {
+        // Deduct from the wallet
+        $new_balance = $amount - $rentalItem['price'];
+        $update_wallet_query = "UPDATE wallet SET amount = ? WHERE users_id = ?";
+        $stmt = $mysqli->prepare($update_wallet_query);
+        $stmt->bind_param("di", $new_balance, $user_id);
+        $stmt->execute();
+        $stmt->close();
+
+        // Add to the rental_reserved table
+        $reserveQuery = "INSERT INTO rental_reserved (users_id, rental_id, date) VALUES (?, ?, NOW())";
+        $stmt = mysqli_prepare($mysqli, $reserveQuery);
+        mysqli_stmt_bind_param($stmt, 'ii', $user_id, $rental_id);
+        mysqli_stmt_execute($stmt);
+        $stmt->close();
+
+        // Send email notification
+        $mail = new PHPMailer(true);
+        try {
+            // SMTP configuration
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = '22130479@students.liu.edu.lb'; // Your Gmail address
+            $mail->Password = 'jqujaycttktvlevd'; // Your Gmail password or App Password
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Port = 587;
+
+            // Set up the email content
+            $mail->setFrom('your_email@gmail.com', 'A.H.G Administrator');
+            $mail->addAddress($email); // Send to user’s email
+            $mail->isHTML(true);
+            $mail->Subject = 'Purchase Confirmation';
+            $mail->Body = '<p>Dear ' . htmlspecialchars($name) . ',</p>
+            <p>Your purchase of the rental item is complete!</p>
+            <p>The amount deducted from your wallet is $' . htmlspecialchars($rentalItem['price']) . '.</p>
+            <p>Regards,</p>
+            <p>A.H.G Administrator</p>';
+
+            // Send email
+            $mail->send();
+            $purchaseSuccessful = true; // Set the flag to true after successful purchase
+
+            // Redirect to a confirmation page
+            header("Location: javascript:history.back();");
+            exit();
+        } catch (Exception $e) {
+            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        }
+    }
 }
 ?>
 
@@ -50,10 +134,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
 
-    <div class="card">
+<div class="card">
     <nav>
-    <a href="javascript:history.back();"><img src="../../image/local_image/back.png" alt="Back" /></a>
-</nav>
+        <a href="javascript:history.back();"><img src="../../image/local_image/back.png" alt="Back" /></a>
+    </nav>
 
     <div class="slider">
         <img id="slider-image" src="../../image/<?php echo htmlspecialchars($rentalItem['image1']); ?>" />
@@ -66,10 +150,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <h3>Realtor: <?php echo htmlspecialchars($rentalItem['realtor_name']); ?></h3>
         
         <form method="POST">
-            <button type="submit">Add to Cart</button>
-            <button type="submit">rental</button>
-
+            <button type="submit" <?php echo $isReserved ? 'disabled' : ''; ?>>Buy</button>
         </form>
+        <?php if ($isReserved): ?>
+            <p>This item is already reserved.</p>
+        <?php endif; ?>
     </div>
 </div>
 
