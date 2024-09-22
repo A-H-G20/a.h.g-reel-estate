@@ -37,6 +37,7 @@ $result = $stmt->get_result();
         <li><a href="dashboard.php">Home</a></li>
         <li><a href="rent_management.php">Rent managment</a></li>
         <li><a href="buy_management.php">Buy managment</a></li>
+        <li><a href="recharge_for_realtor.php">Recharge my account</a></li>
         <li><a href="wallet.php">wallet</a></li>
         <li><a href="settings.php">Settings</a></li>
         <li><a href="../logout.php">Logout</a></li>
