@@ -1,198 +1,198 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-
 header {
-    background-color: #002147; /* Dark blue */
-    color: white;
-    padding: 15px 20px; /* Padding around the header */
-    display: flex;
-    justify-content: center; /* Center items horizontally */
-    align-items: center; /* Center items vertically */
-  
+  background-color: #002147; /* Dark blue */
+  color: white;
+  padding: 15px 20px; /* Padding around the header */
+  display: flex;
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
 }
 
 nav {
-    display: flex;
-    align-items: center; /* Align items vertically */
-    justify-content: center; /* Center the nav items */
+  display: flex;
+  align-items: center; /* Align items vertically */
+  justify-content: center; /* Center the nav items */
 }
 
 nav li {
-    list-style: none; /* Remove bullets from list items */
-    margin: 0 10px; /* Space between links */
+  list-style: none; /* Remove bullets from list items */
+  margin: 0 10px; /* Space between links */
 }
 
 nav a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 10px;
-    transition: color 0.3s;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px;
+  transition: color 0.3s;
 }
 
 nav a:hover {
-    color: #ffdd00; /* Golden highlight on hover */
+  color: #ffdd00; /* Golden highlight on hover */
 }
 
 .nav-menu {
-    margin: 0 10px; /* Space between select menus and links */
-    padding: 10px; /* Padding inside the select */
-    border: none; /* Remove default border */
-    border-radius: 4px; /* Rounded corners */
-    background-color: #005599; /* Blue background */
-    color: white; /* Text color */
-    font-size: 16px; /* Font size */
-    cursor: pointer; /* Pointer cursor on hover */
+  margin: 0 10px; /* Space between select menus and links */
+  padding: 10px; /* Padding inside the select */
+  border: none; /* Remove default border */
+  border-radius: 4px; /* Rounded corners */
+  background-color: #005599; /* Blue background */
+  color: white; /* Text color */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
 }
 
 .nav-menu option {
-    background-color: #fff; /* Background for options */    
-    color: #333; /* Text color for options */
+  background-color: #fff; /* Background for options */
+  color: #333; /* Text color for options */
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
-    nav {
-        flex-direction: column; /* Stack items on small screens */
-        align-items: center; /* Center items in stacked layout */
-    }
+  nav {
+    flex-direction: column; /* Stack items on small screens */
+    align-items: center; /* Center items in stacked layout */
+  }
 
-    nav li {
-        margin-bottom: 10px; /* Space between stacked items */
-    }
+  nav li {
+    margin-bottom: 10px; /* Space between stacked items */
+  }
 }
 /* Overall container styling */
 .dash {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 25px;
-    background-color: #f0f4f8;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-    max-width: 1400px; /* Increased width */
-    margin: 20px auto;
-    border: 1px solid #e3e7ec;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 25px;
+  background-color: #f0f4f8;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  max-width: 1400px; /* Increased width */
+  margin: 20px auto;
+  border: 1px solid #e3e7ec;
 }
 
 /* Styling for the count container */
 .count-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: space-between;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    width: 100%; /* Make it take the full width of .dash */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  width: 100%; /* Make it take the full width of .dash */
 }
 
-.count-users, .count-post {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #2d89ef;
-    color: #fff;
-    padding: 15px 30px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 600;
-    transition: transform 0.3s, box-shadow 0.3s;
-    flex: 1; /* Adjust to take equal space */
-    margin: 10px; /* Add some margin */
-    text-align: center;
+.count-users,
+.count-post {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2d89ef;
+  color: #fff;
+  padding: 15px 30px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  transition: transform 0.3s, box-shadow 0.3s;
+  flex: 1; /* Adjust to take equal space */
+  margin: 10px; /* Add some margin */
+  text-align: center;
 }
 
-.count-users:hover, .count-post:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-    background-color: #236ab9;
+.count-users:hover,
+.count-post:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  background-color: #236ab9;
 }
 
-.count-users label, .count-post label {
-    cursor: pointer;
-    margin: 0;
+.count-users label,
+.count-post label {
+  cursor: pointer;
+  margin: 0;
 }
 
 /* Chart container styling */
 .chart-container {
-    margin-top: 20px;
-    padding: 25px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    width: 100%; /* Make it take the full width of .dash */
+  margin-top: 20px;
+  padding: 25px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  width: 100%; /* Make it take the full width of .dash */
 }
 
 /* Filters container styling */
 .filters {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-    max-width: 1000px; /* Increased width */
-    margin: 20px auto;
-    border: 1px solid #e3e7ec;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  max-width: 1000px; /* Increased width */
+  margin: 20px auto;
+  border: 1px solid #e3e7ec;
 }
 
 .filters h3 {
-    margin-bottom: 15px;
-    color: #4a4a4a;
+  margin-bottom: 15px;
+  color: #4a4a4a;
 }
 
 .filters form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .filters label {
-    font-weight: 500;
-    margin-bottom: 5px;
-    color: #333;
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #333;
 }
 
 .filters input[type="date"] {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #cdd1d5;
-    font-size: 14px;
-    width: 90%;
-    background-color: #f9fafb;
-    transition: border-color 0.3s;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #cdd1d5;
+  font-size: 14px;
+  width: 90%;
+  background-color: #f9fafb;
+  transition: border-color 0.3s;
 }
 
 .filters input[type="date"]:focus {
-    border-color: #2d89ef;
-    outline: none;
+  border-color: #2d89ef;
+  outline: none;
 }
 
 .filters button {
-    padding: 12px;
-    background-color: #28a745;
-    color: #ffffff;
-    border: none;
-    border-radius: 6px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s, box-shadow 0.3s;
+  padding: 12px;
+  background-color: #28a745;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .filters button:hover {
-    background-color: #218838;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #218838;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

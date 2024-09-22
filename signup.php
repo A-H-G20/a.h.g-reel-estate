@@ -43,13 +43,13 @@ function validatePassword($password)
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST['name'];
     $email = $_POST['email'];
-  
+
     $gender = $_POST['gender'];
     $address = $_POST['address'];
     $date_of_birth = $_POST['date_of_birth'];
     $phone_number = $_POST['phone_number'];
     $password = $_POST['password'];
-   
+
     $role = 'user';
     $mail = new PHPMailer(true);
 
@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     // Hash the password
                     $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
-                
+
                     $stmt = $conn->prepare("INSERT INTO users (name, username, email, gender,  address, date_of_birth, phone_number, password, verification_code,  role) VALUES (  ?, ?, ?, ?, ?, ?, ?, ?, ?, 'user')");
                     $verification_code = substr(number_format(time() * rand(), 0, '', ''), 0, 6);
                     $stmt->bind_param("sssssssss", $name, $username, $email, $gender,  $address, $date_of_birth, $phone_number, $hashed_password, $verification_code,);
@@ -151,7 +151,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" required>
 
-                   
+
 
 
                     <label for="gender">Gender:</label>
@@ -166,7 +166,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
 
                 <div class="left-side">
-                  
+
 
                     <label for="address">Address:</label>
                     <input type="text" id="address" name="address" required>

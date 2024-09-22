@@ -1,104 +1,102 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #eef2f3; /* Soft background color */
-    color: #333; /* Dark text color */
-    margin: 0;
-
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #eef2f3; /* Soft background color */
+  color: #333; /* Dark text color */
+  margin: 0;
 }
 
 h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #333; /* Dark color for the heading */
-    font-size: 24px; /* Larger font size */
-    font-weight: bold; /* Bold text */
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333; /* Dark color for the heading */
+  font-size: 24px; /* Larger font size */
+  font-weight: bold; /* Bold text */
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    border-radius: 8px; /* Rounded corners */
-    overflow: hidden; /* Prevents overflow for rounded corners */
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden; /* Prevents overflow for rounded corners */
 }
 
 thead {
-    background-color: #4a90e2; /* Header background color */
-    color: white; /* Header text color */
+  background-color: #4a90e2; /* Header background color */
+  color: white; /* Header text color */
 }
 
-th, td {
-    padding: 12px 15px; /* Padding for cells */
-    text-align: left; /* Left align text */
-    border-bottom: 1px solid #ddd; /* Border between rows */
+th,
+td {
+  padding: 12px 15px; /* Padding for cells */
+  text-align: left; /* Left align text */
+  border-bottom: 1px solid #ddd; /* Border between rows */
 }
 
 td img {
-    max-width: 80px; /* Image size limit */
-    border-radius: 4px; /* Rounded corners for images */
+  max-width: 80px; /* Image size limit */
+  border-radius: 4px; /* Rounded corners for images */
 }
 
 button {
-    background-color: #e74c3c; /* Red background color */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 12px; /* Button padding */
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+  background-color: #e74c3c; /* Red background color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px; /* Button padding */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
 }
 
 button:hover {
-    background-color: #c0392b; /* Darker red on hover */
-    transform: scale(1.05); /* Slightly enlarge on hover */
+  background-color: #c0392b; /* Darker red on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
-
-
 header {
-    background-color: #002147; /* Dark blue */
-    color: white;
-    padding: 15px 20px; /* Padding around the header */
-    display: flex;
-    justify-content: center; /* Center items horizontally */
-    align-items: center; /* Center items vertically */
+  background-color: #002147; /* Dark blue */
+  color: white;
+  padding: 15px 20px; /* Padding around the header */
+  display: flex;
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
 }
 
 nav {
-    display: flex;
-    align-items: center; /* Align items vertically */
-    justify-content: center; /* Center the nav items */
+  display: flex;
+  align-items: center; /* Align items vertically */
+  justify-content: center; /* Center the nav items */
 }
 
 nav li {
-    list-style: none; /* Remove bullets from list items */
-    margin: 0 10px; /* Space between links */
+  list-style: none; /* Remove bullets from list items */
+  margin: 0 10px; /* Space between links */
 }
 
 nav a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 10px;
-    transition: color 0.3s;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px;
+  transition: color 0.3s;
 }
 
 nav a:hover {
-    color: #ffdd00; /* Golden highlight on hover */
+  color: #ffdd00; /* Golden highlight on hover */
 }
 
 .nav-menu {
-    margin: 0 10px; /* Space between select menus and links */
-    padding: 10px; /* Padding inside the select */
-    border: none; /* Remove default border */
-    border-radius: 4px; /* Rounded corners */
-    background-color: #005599; /* Blue background */
-    color: white; /* Text color */
-    font-size: 16px; /* Font size */
-    cursor: pointer; /* Pointer cursor on hover */
+  margin: 0 10px; /* Space between select menus and links */
+  padding: 10px; /* Padding inside the select */
+  border: none; /* Remove default border */
+  border-radius: 4px; /* Rounded corners */
+  background-color: #005599; /* Blue background */
+  color: white; /* Text color */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
 }
 
 .nav-menu option {
-    background-color: #fff; /* Background for options */    
-    color: #333; /* Text color for options */
+  background-color: #fff; /* Background for options */
+  color: #333; /* Text color for options */
 }

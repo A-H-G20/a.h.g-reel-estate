@@ -18,29 +18,31 @@ $user = mysqli_fetch_assoc($result);
 
 // Display the user information and allow editing
 ?>
+<link href="../image/local_image/logo.png" rel="icon">
 <header>
-        <nav>
-            <li><a href="dashboard.php">Home</a></li>
-            
+  <nav>
+    <li><a href="dashboard.php">Home</a></li>
 
-            <select class="nav-menu" id="Buy-select" onchange="navigateToPage(this)">
-                <option selected disabled>Management</option>
-                <option  value="user_management.php">User Management</option>
-                <option  value="realtor_management.php">Realtor Management</option>      
-                <option value="admin_management.php">Admin Management</option>      
-                <option value="rent_management.php">Rent Management</option>      
-                <option value="buy_management.php">Buy Management</option>      
-            </select>
-            <select class="nav-menu" id="Buy-select" onchange="navigateToPage(this)">
-                <option selected disabled>Reserved</option>
-                <option value="rent_table.php">Rent Reserved</option>
-                <option value="buy_table.php">Buy Reserved</option>      
-            </select>
-            <li><a href="wallet.php">Wallet</a></li>
-            <li><a href="settings.php">Settings</a></li>
-            <li><a href="../logout.php">Logout</a></li>
-        </nav>
-    </header>
+
+    <select class="nav-menu" id="Buy-select" onchange="navigateToPage(this)">
+      <option selected disabled>Management</option>
+      <option value="user_management.php">User Management</option>
+      <option value="realtor_management.php">Realtor Management</option>
+      <option value="admin_management.php">Admin Management</option>
+      <option value="rent_management.php">Rent Management</option>
+      <option value="buy_management.php">Buy Management</option>
+    </select>
+    <select class="nav-menu" id="Buy-select" onchange="navigateToPage(this)">
+      <option selected disabled>Reserved</option>
+      <option value="rent_table.php">Rent Reserved</option>
+      <option value="buy_table.php">Buy Reserved</option>
+    </select>
+    <li><a href="send_for_all.php">Send email</a></li>
+    <li><a href="wallet.php">Wallet</a></li>
+    <li><a href="settings.php">Settings</a></li>
+    <li><a href="../logout.php">Logout</a></li>
+  </nav>
+</header>
 <div class="user-info">
   <link rel="stylesheet" href="css/settings.css">
   <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">

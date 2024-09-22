@@ -17,7 +17,7 @@ if (!$result) {
 $user = mysqli_fetch_assoc($result);
 
 // Display the user information and allow editing
-?>
+?> <link href="../image/local_image/logo.png" rel="icon">
   <header>
         <nav>
         <li><a href="dashboard.php">Home</a></li>

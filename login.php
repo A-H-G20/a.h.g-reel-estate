@@ -30,15 +30,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Redirect based on role
                 if ($role == 'admin') {
                     header("Location: admin/dashboard.php");
-                } else if($role=='user') {
+                } else if ($role == 'user') {
                     // For regular users, check if verified
                     if ($verified == 1) {
                         header("Location: users/dashboard.php");
                     } else {
                         header("Location: email-verification.php");
                     }
-                }
-                else {
+                } else {
                     // For regular users, check if verified
                     if ($verified == 1) {
                         header("Location: realtor/dashboard.php");

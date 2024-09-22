@@ -25,6 +25,7 @@ $buyResult = $mysqli->query($buyQuery);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/dashboard.css">
+    <link href="../image/local_image/logo.png" rel="icon">
     <title>Home Page</title>
 </head>
 <body>

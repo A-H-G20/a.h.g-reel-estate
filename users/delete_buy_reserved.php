@@ -16,7 +16,7 @@ if (isset($_POST['id'])) {
     // Prepare the delete query
     $deleteQuery = "DELETE FROM rent_reserved WHERE id = ?";
     $stmt = $mysqli->prepare($deleteQuery);
-    
+
     if ($stmt) {
         $stmt->bind_param("i", $id);
         $stmt->execute();
@@ -27,7 +27,7 @@ if (isset($_POST['id'])) {
         } else {
             echo "Item not found or could not be deleted.";
         }
-        
+
         $stmt->close();
     } else {
         echo "Error preparing statement: " . $mysqli->error;
@@ -42,4 +42,3 @@ $mysqli->close();
 // Redirect back to the reserved items page
 header("Location: rent_table.php"); // Adjust to your reserved items page
 exit();
-?>

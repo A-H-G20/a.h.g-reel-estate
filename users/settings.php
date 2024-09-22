@@ -18,43 +18,43 @@ $user = mysqli_fetch_assoc($result);
 
 // Display the user information and allow editing
 ?>
-
+<link href="../image/local_image/logo.png" rel="icon">
 <header>
-        <nav>
-            <li><a href="dashboard.php">Home</a></li>
-            <select class="nav-menu" id="Rentel-select" onchange="navigateToPage(this)">
-                <option selected disabled>Rentel</option>
-                <option value="rentel/houses.php">Houses</option>
-                <option value="rentel/vacation_rentals.php">Vacation Rentals</option>
-                <option value="rentel/studios.php">Studios</option>
-                <option value="rentel/duplexes.php">Duplexes</option>
-                <option value="rentel/basement_apartments.php">Basement Apartments</option>
-                <option value="rentel/farmhouses.php">Farmhouses</option>
-                <option value="rentel/swimming_pool.php">Swimming Pool</option>           
-            </select>
+  <nav>
+    <li><a href="dashboard.php">Home</a></li>
+    <select class="nav-menu" id="Rentel-select" onchange="navigateToPage(this)">
+      <option selected disabled>Rentel</option>
+      <option value="rentel/houses.php">Houses</option>
+      <option value="rentel/vacation_rentals.php">Vacation Rentals</option>
+      <option value="rentel/studios.php">Studios</option>
+      <option value="rentel/duplexes.php">Duplexes</option>
+      <option value="rentel/basement_apartments.php">Basement Apartments</option>
+      <option value="rentel/farmhouses.php">Farmhouses</option>
+      <option value="rentel/swimming_pool.php">Swimming Pool</option>
+    </select>
 
-            <select class="nav-menu" id="Buy-select" onchange="navigateToPage(this)">
-                <option selected disabled>Buy</option>
-                <option value="buy/houses.php">Houses</option>
-                <option value="buy/vacation_rentals.php">Vacation Rentals</option>
-                <option value="buy/studios.php">Studios</option>
-                <option value="buy/duplexes.php">Duplexes</option>
-                <option value="buy/basement_apartments.php">Basement Apartments</option>
-                <option value="buy/farmhouses.php">Farmhouses</option>
-                <option value="buy/swimming_pool.php">Swimming Pool</option>           
-            </select>
-            <select class="nav-menu" id="Buy-select" onchange="navigateToPage(this)">
-                <option selected disabled>My reserved</option>
-                <option value="rent_table.php">Rent Reserved</option>
-                <option value="buy_table.php">Buy Reserved</option>      
-            </select>
-            
-            <li><a href="wallet.php">Wallet</a></li>
-            <li><a href="ask_for_realtor.php">Realtor</a></li>
-            <li><a href="settings.php">Settings</a></li>
-            <li><a href="../logout.php">Logout</a></li>
-        </nav>
-    </header>
+    <select class="nav-menu" id="Buy-select" onchange="navigateToPage(this)">
+      <option selected disabled>Buy</option>
+      <option value="buy/houses.php">Houses</option>
+      <option value="buy/vacation_rentals.php">Vacation Rentals</option>
+      <option value="buy/studios.php">Studios</option>
+      <option value="buy/duplexes.php">Duplexes</option>
+      <option value="buy/basement_apartments.php">Basement Apartments</option>
+      <option value="buy/farmhouses.php">Farmhouses</option>
+      <option value="buy/swimming_pool.php">Swimming Pool</option>
+    </select>
+    <select class="nav-menu" id="Buy-select" onchange="navigateToPage(this)">
+      <option selected disabled>My reserved</option>
+      <option value="rent_table.php">Rent Reserved</option>
+      <option value="buy_table.php">Buy Reserved</option>
+    </select>
+
+    <li><a href="wallet.php">Wallet</a></li>
+    <li><a href="ask_for_realtor.php">Realtor</a></li>
+    <li><a href="settings.php">Settings</a></li>
+    <li><a href="../logout.php">Logout</a></li>
+  </nav>
+</header>
 <div class="user-info">
   <link rel="stylesheet" href="css/settings.css">
   <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">

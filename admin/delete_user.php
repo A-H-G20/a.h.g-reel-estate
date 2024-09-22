@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['user_id'])) {
     $query = "DELETE FROM users WHERE id = ?";
     $stmt = $mysqli->prepare($query);
     $stmt->bind_param("i", $user_id);
-    
+
     if ($stmt->execute()) {
         // Redirect back to user management with success message
         header("Location: user_management.php?success=User deleted successfully.");
@@ -17,7 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['user_id'])) {
         // Redirect back with error message
         header("Location: user_management.php?error=Error deleting user.");
     }
-    
+
     $stmt->close();
 }
-?>

@@ -87,6 +87,7 @@ $mysqli->close();
     <meta charset="UTF-8">
     <title>Edit Rental</title>
     <link rel="stylesheet" href="css/edit.css">
+    <link href="../image/local_image/logo.png" rel="icon">
 </head>
 <body>
 <header>

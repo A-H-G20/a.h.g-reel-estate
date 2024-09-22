@@ -126,60 +126,64 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !$isReserved) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/details.css"> <!-- Link to your CSS file -->
+    <link href="../../image/local_image/logo.png" rel="icon">
     <title>Item Details</title>
 </head>
+
 <body>
 
-<div class="card">
-    <nav>
-        <a href="javascript:history.back();"><img src="../../image/local_image/back.png" alt="Back" /></a>
-    </nav>
+    <div class="card">
+        <nav>
+            <a href="javascript:history.back();"><img src="../../image/local_image/back.png" alt="Back" /></a>
+        </nav>
 
-    <div class="slider">
-        <img id="slider-image" src="../../image/<?php echo htmlspecialchars($rentalItem['image1']); ?>" />
-        <button class="arrow left" onclick="changeImage(-1)">&#10094;</button>
-        <button class="arrow right" onclick="changeImage(1)">&#10095;</button>
+        <div class="slider">
+            <img id="slider-image" src="../../image/<?php echo htmlspecialchars($rentalItem['image1']); ?>" />
+            <button class="arrow left" onclick="changeImage(-1)">&#10094;</button>
+            <button class="arrow right" onclick="changeImage(1)">&#10095;</button>
+        </div>
+        <div class="description">
+            <h2><?php echo nl2br(htmlspecialchars($rentalItem['description'])); ?></h2>
+            <h1>Price: $<?php echo htmlspecialchars($rentalItem['price']); ?></h1>
+            <h3>Realtor: <?php echo htmlspecialchars($rentalItem['realtor_name']); ?></h3>
+
+            <form method="POST">
+                <button type="submit" <?php echo $isReserved ? 'disabled' : ''; ?>>Buy</button>
+            </form>
+            <?php if ($isReserved): ?>
+                <p>This item is already reserved.</p>
+            <?php endif; ?>
+        </div>
     </div>
-    <div class="description">
-        <h2><?php echo nl2br(htmlspecialchars($rentalItem['description'])); ?></h2>
-        <h1>Price: $<?php echo htmlspecialchars($rentalItem['price']); ?></h1>
-        <h3>Realtor: <?php echo htmlspecialchars($rentalItem['realtor_name']); ?></h3>
-        
-        <form method="POST">
-            <button type="submit" <?php echo $isReserved ? 'disabled' : ''; ?>>Buy</button>
-        </form>
-        <?php if ($isReserved): ?>
-            <p>This item is already reserved.</p>
-        <?php endif; ?>
-    </div>
-</div>
 
-<script>
-    let currentImageIndex = 0;
-    const images = [
-        '<?php echo htmlspecialchars($rentalItem['image1']); ?>',
-        '<?php echo htmlspecialchars($rentalItem['image2']); ?>',
-        '<?php echo htmlspecialchars($rentalItem['image3']); ?>'
-    ];
+    <script>
+        let currentImageIndex = 0;
+        const images = [
+            '<?php echo htmlspecialchars($rentalItem['image1']); ?>',
+            '<?php echo htmlspecialchars($rentalItem['image2']); ?>',
+            '<?php echo htmlspecialchars($rentalItem['image3']); ?>'
+        ];
 
-    function changeImage(direction) {
-        currentImageIndex += direction;
-        if (currentImageIndex < 0) {
-            currentImageIndex = images.length - 1; // Loop to last image
-        } else if (currentImageIndex >= images.length) {
-            currentImageIndex = 0; // Loop to first image
+        function changeImage(direction) {
+            currentImageIndex += direction;
+            if (currentImageIndex < 0) {
+                currentImageIndex = images.length - 1; // Loop to last image
+            } else if (currentImageIndex >= images.length) {
+                currentImageIndex = 0; // Loop to first image
+            }
+            document.getElementById('slider-image').src = '../../image/' + images[currentImageIndex];
         }
-        document.getElementById('slider-image').src = '../../image/' + images[currentImageIndex];
-    }
-</script>
+    </script>
 
-<?php
-// Close the connection
-mysqli_close($mysqli);
-?>
+    <?php
+    // Close the connection
+    mysqli_close($mysqli);
+    ?>
 </body>
+
 </html>

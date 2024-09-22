@@ -48,6 +48,7 @@ $traffic_stmt->close();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -56,98 +57,101 @@ $traffic_stmt->close();
     <link href="../image/local_image/logo.png" rel="icon">
     <title>Dashboard</title>
 </head>
+
 <body>
-<header>
+    <header>
         <nav>
             <li><a href="dashboard.php">Home</a></li>
-            
+
 
             <select class="nav-menu" id="Buy-select" onchange="navigateToPage(this)">
                 <option selected disabled>Management</option>
-                <option  value="user_management.php">User Management</option>
-                <option  value="realtor_management.php">Realtor Management</option>      
-                <option value="admin_management.php">Admin Management</option>      
-                <option value="rent_management.php">Rent Management</option>      
-                <option value="buy_management.php">Buy Management</option>      
+                <option value="user_management.php">User Management</option>
+                <option value="realtor_management.php">Realtor Management</option>
+                <option value="admin_management.php">Admin Management</option>
+                <option value="rent_management.php">Rent Management</option>
+                <option value="buy_management.php">Buy Management</option>
             </select>
             <select class="nav-menu" id="Buy-select" onchange="navigateToPage(this)">
                 <option selected disabled>Reserved</option>
                 <option value="rent_table.php">Rent Reserved</option>
-                <option value="buy_table.php">Buy Reserved</option>      
+                <option value="buy_table.php">Buy Reserved</option>
             </select>
+            <li><a href="send_for_all.php">Send email</a></li>
             <li><a href="wallet.php">Wallet</a></li>
             <li><a href="settings.php">Settings</a></li>
             <li><a href="../logout.php">Logout</a></li>
         </nav>
     </header>
 
-<div class="dash">
-    <div class="count-container">
-      
-        <a href="user_management.php" class="count-users">
-            <label for="user">Users: <?php echo htmlspecialchars($count_data['user_count']); ?></label>
+    <div class="dash">
+        <div class="count-container">
+
+            <a href="user_management.php" class="count-users">
+                <label for="user">Users: <?php echo htmlspecialchars($count_data['user_count']); ?></label>
             </a>
-            
+
             <a href="realtor_management.php" class="count-users">
-            <label for="user">Realtor: <?php echo htmlspecialchars($count_data['realtor_count']); ?></label>
+                <label for="user">Realtor: <?php echo htmlspecialchars($count_data['realtor_count']); ?></label>
             </a>
-      
-        <a href="rent_management.php" class="count-post">
-        <label for="count">Rent item: <?php echo htmlspecialchars($count_data['post_count']); ?></label>
-    </a>
-    <a href="buy_management.php" class="count-post">
-        <label for="count">Buy item: <?php echo htmlspecialchars($count_data['buy_count']); ?></label>
-    </a>
+
+            <a href="rent_management.php" class="count-post">
+                <label for="count">Rent item: <?php echo htmlspecialchars($count_data['post_count']); ?></label>
+            </a>
+            <a href="buy_management.php" class="count-post">
+                <label for="count">Buy item: <?php echo htmlspecialchars($count_data['buy_count']); ?></label>
+            </a>
+        </div>
+        <div class="chart-container">
+            <canvas id="trafficChart"></canvas>
+        </div>
     </div>
-    <div class="chart-container">
-        <canvas id="trafficChart"></canvas>
+
+
+    <div class="filters">
+
+        <form action="" method="get">
+            <h3>Filters</h3>
+            <label for="start_date">Start Date:</label>
+            <input type="date" id="start_date" name="start_date" value="<?php echo htmlspecialchars($start_date); ?>">
+            <label for="end_date">End Date:</label>
+            <input type="date" id="end_date" name="end_date" value="<?php echo htmlspecialchars($end_date); ?>">
+            <button type="submit">Apply Filters</button>
+        </form>
     </div>
-</div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var ctx = document.getElementById('trafficChart').getContext('2d');
+            var trafficData = <?php echo json_encode($traffic_data); ?>;
 
-<div class="filters">
- 
-    <form action="" method="get">
-    <h3>Filters</h3>
-        <label for="start_date">Start Date:</label>
-        <input type="date" id="start_date" name="start_date" value="<?php echo htmlspecialchars($start_date); ?>">
-        <label for="end_date">End Date:</label>
-        <input type="date" id="end_date" name="end_date" value="<?php echo htmlspecialchars($end_date); ?>">
-        <button type="submit">Apply Filters</button>
-    </form>
-</div>
+            var chartLabels = trafficData.map(data => data.status);
+            var chartData = trafficData.map(data => data.count);
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    var ctx = document.getElementById('trafficChart').getContext('2d');
-    var trafficData = <?php echo json_encode($traffic_data); ?>;
-
-    var chartLabels = trafficData.map(data => data.status);
-    var chartData = trafficData.map(data => data.count);
-
-    new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: chartLabels,
-            datasets: [{
-                label: 'User Registration Traffic',
-                data: chartData,
-                backgroundColor: ['#4e73df', '#1cc88a'],
-                borderColor: '#ffffff',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                x: {
-                    beginAtZero: true
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: chartLabels,
+                    datasets: [{
+                        label: 'User Registration Traffic',
+                        data: chartData,
+                        backgroundColor: ['#4e73df', '#1cc88a'],
+                        borderColor: '#ffffff',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        x: {
+                            beginAtZero: true
+                        }
+                    }
                 }
-            }
-        }
-    });
-});
-</script>
-<script src="js/header.js"></script>
+            });
+        });
+    </script>
+    <script src="js/header.js"></script>
 </body>
+
 </html>

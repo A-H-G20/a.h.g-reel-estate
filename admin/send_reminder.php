@@ -34,11 +34,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['email'])) {
 
         // Send email
         $mail->send();
-      header("loaction: realtor_managment.php");
+        header("loaction: realtor_managment.php");
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     } catch (mysqli_sql_exception $e) {
         echo "Database Error: {$e->getMessage()}";
     }
 }
-?>

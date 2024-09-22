@@ -9,15 +9,23 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f8f8;
 }
 
 header {
   background-color: #002147; /* Dark blue */
   color: white;
   padding: 15px 20px; /* Padding around the header */
+  width: 100%; /* Make the header full width */
+  position: fixed; /* Fix header at the top */
+  top: 0; /* Position it at the top */
+  left: 0; /* Align to the left */
   display: flex;
   justify-content: center; /* Center items horizontally */
   align-items: center; /* Center items vertically */
+  z-index: 1000; /* Ensure the header stays above other elements */
 }
 
 nav {
@@ -71,86 +79,47 @@ nav a:hover {
   }
 }
 
-/* Container for the user table */
-.user-table-container {
-  background-color: #ffffff;
-  padding: 50px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  width: 90%;
-  margin: 0 auto;
-}
-
-/* Heading Style */
-.user-table-container h2 {
-  margin-bottom: 20px;
-  color: #343a40;
-}
-
-/* Table Styles */
-table {
+form {
+  background-color: #fff;
+  padding: 20px 40px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
   width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
+  text-align: center;
+  margin-top: 100px; /* Adjust margin to push form below the fixed header */
 }
 
-th,
-td {
-  padding: 12px;
-  text-align: left;
-  border-bottom: 1px solid #dee2e6;
-}
-
-th {
-  background-color: #007bff;
-  color: white;
-}
-
-tr:hover {
-  background-color: #f1f1f1;
-}
-
-/* Button Styles */
-button {
-  background-color: #dc3545;
-  color: white;
-  border: none;
+form input,
+form button {
+  width: 100%;
+  padding: 10px 15px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
   border-radius: 5px;
-  padding: 8px 15px;
+  font-size: 16px;
+}
+
+form input:focus,
+form button:focus {
+  border-color: #3498db;
+  outline: none;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+form button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s;
+  transition: background-color 0.3s ease;
 }
 
-button:hover {
-  background-color: #c82333;
-  transform: translateY(-1px);
+form button:hover {
+  background-color: #2980b9;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-  table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-
-  th,
-  td {
-    display: block;
-    text-align: right;
-    padding: 10px;
-    border: none;
-    position: relative;
-  }
-
-  th {
-    text-align: left;
-  }
-
-  td::before {
-    content: attr(data-label);
-    position: absolute;
-    left: 10px;
-    font-weight: bold;
-  }
+form h2 {
+  margin-bottom: 20px;
+  color: #333;
 }

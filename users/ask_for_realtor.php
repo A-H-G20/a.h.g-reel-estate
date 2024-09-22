@@ -24,19 +24,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $mysqli->prepare($wallet_query);
     $stmt->bind_param("i", $user_id);
     $stmt->execute();
-    $stmt->bind_result($amount, $email,$name);
+    $stmt->bind_result($amount, $email, $name);
     $stmt->fetch();
     $stmt->close();
 
     if ($amount < 50) {
         // Set the message
         $message = "You don't have enough amount in your wallet.";
-        
+
         // Redirect to wallet.php with the message
         header("Location: wallet.php?message=" . urlencode($message));
         exit();
-    }
-    else {
+    } else {
         // Deduct 50 from the wallet
         $new_balance = $amount - 50;
         $update_wallet_query = "UPDATE wallet SET amount = ? WHERE users_id = ?";
@@ -107,15 +106,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/aks_for_realtor..css">
+    <link href="../image/local_image/logo.png" rel="icon">
     <title>Ask for realtor Page</title>
-   <script src="js/header.js"></script>
+    <script src="js/header.js"></script>
 </head>
+
 <body>
-<header>
+    <header>
         <nav>
             <li><a href="dashboard.php">Home</a></li>
             <select class="nav-menu" id="Rentel-select" onchange="navigateToPage(this)">
@@ -126,7 +128,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <option value="rentel/duplexes.php">Duplexes</option>
                 <option value="rentel/basement_apartments.php">Basement Apartments</option>
                 <option value="rentel/farmhouses.php">Farmhouses</option>
-                <option value="rentel/swimming_pool.php">Swimming Pool</option>           
+                <option value="rentel/swimming_pool.php">Swimming Pool</option>
             </select>
 
             <select class="nav-menu" id="Buy-select" onchange="navigateToPage(this)">
@@ -137,14 +139,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <option value="buy/duplexes.php">Duplexes</option>
                 <option value="buy/basement_apartments.php">Basement Apartments</option>
                 <option value="buy/farmhouses.php">Farmhouses</option>
-                <option value="buy/swimming_pool.php">Swimming Pool</option>           
+                <option value="buy/swimming_pool.php">Swimming Pool</option>
             </select>
             <select class="nav-menu" id="Buy-select" onchange="navigateToPage(this)">
                 <option selected disabled>My reserved</option>
                 <option value="rent_table.php">Rent Reserved</option>
-                <option value="buy_table.php">Buy Reserved</option>      
+                <option value="buy_table.php">Buy Reserved</option>
             </select>
-            
+
             <li><a href="wallet.php">Wallet</a></li>
             <li><a href="ask_for_realtor.php">Ask to be realtor</a></li>
             <li><a href="settings.php">Settings</a></li>
@@ -152,16 +154,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </nav>
     </header>
     <form action="" method="POST">
-    <h2>To be a realtor</h2>
-    <p>You have to pay $50 per month to be a realtor and we can add your real estate.</p>
-    <button type="submit">Pay</button>
-</form>
-<?php
-// Display message if set
-if (isset($message)) {
-    echo "<p>$message</p>";
-}
-?>
+        <h2>To be a realtor</h2>
+        <p>You have to pay $50 per month to be a realtor and we can add your real estate.</p>
+        <button type="submit">Pay</button>
+    </form>
+    <?php
+    // Display message if set
+    if (isset($message)) {
+        echo "<p>$message</p>";
+    }
+    ?>
 
 </body>
+
 </html>

@@ -1,218 +1,221 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-
 header {
-    background-color: #002147; /* Dark blue */
-    color: white;
-    padding: 15px 20px; /* Padding around the header */
-    display: flex;
-    justify-content: center; /* Center items horizontally */
-    align-items: center; /* Center items vertically */
-  
+  background-color: #002147; /* Dark blue */
+  color: white;
+  padding: 15px 20px; /* Padding around the header */
+  display: flex;
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
 }
 
 nav {
-    display: flex;
-    align-items: center; /* Align items vertically */
-    justify-content: center; /* Center the nav items */
+  display: flex;
+  align-items: center; /* Align items vertically */
+  justify-content: center; /* Center the nav items */
 }
 
 nav li {
-    list-style: none; /* Remove bullets from list items */
-    margin: 0 10px; /* Space between links */
+  list-style: none; /* Remove bullets from list items */
+  margin: 0 10px; /* Space between links */
 }
 
 nav a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 10px;
-    transition: color 0.3s;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px;
+  transition: color 0.3s;
 }
 
 nav a:hover {
-    color: #ffdd00; /* Golden highlight on hover */
+  color: #ffdd00; /* Golden highlight on hover */
 }
 
 .nav-menu {
-    margin: 0 10px; /* Space between select menus and links */
-    padding: 10px; /* Padding inside the select */
-    border: none; /* Remove default border */
-    border-radius: 4px; /* Rounded corners */
-    background-color: #005599; /* Blue background */
-    color: white; /* Text color */
-    font-size: 16px; /* Font size */
-    cursor: pointer; /* Pointer cursor on hover */
+  margin: 0 10px; /* Space between select menus and links */
+  padding: 10px; /* Padding inside the select */
+  border: none; /* Remove default border */
+  border-radius: 4px; /* Rounded corners */
+  background-color: #005599; /* Blue background */
+  color: white; /* Text color */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
 }
 
 .nav-menu option {
-    background-color: #fff; /* Background for options */    
-    color: #333; /* Text color for options */
+  background-color: #fff; /* Background for options */
+  color: #333; /* Text color for options */
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
-    nav {
-        flex-direction: column; /* Stack items on small screens */
-        align-items: center; /* Center items in stacked layout */
-    }
+  nav {
+    flex-direction: column; /* Stack items on small screens */
+    align-items: center; /* Center items in stacked layout */
+  }
 
-    nav li {
-        margin-bottom: 10px; /* Space between stacked items */
-    }
+  nav li {
+    margin-bottom: 10px; /* Space between stacked items */
+  }
 }
 
 button {
-    background-color: #002147; /* Dark blue */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+  background-color: #002147; /* Dark blue */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #004080;
+  background-color: #004080;
 }
 
 #add-button {
-    margin: 20px 0;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  margin: 20px 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .form-container {
-    background-color: white;
-    width: 50%;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-    display: none; /* Initially hidden */
+  background-color: white;
+  width: 50%;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  display: none; /* Initially hidden */
 }
 
 .form-container h3 {
-    color: #002147; /* Dark blue */
+  color: #002147; /* Dark blue */
 }
 
-.form-container input, 
+.form-container input,
 .form-container select {
-    width: 90%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
 }
 
 .form-container button {
-    width: 20%;
-    margin-right: 4%;
-    font-size: 16px;
+  width: 20%;
+  margin-right: 4%;
+  font-size: 16px;
 }
 
 #cancel-button {
-    background-color: #ff4c4c; /* Red for cancel */
+  background-color: #ff4c4c; /* Red for cancel */
 }
 
 #cancel-button:hover {
-    background-color: #cc0000;
+  background-color: #cc0000;
 }
 
 table {
-    width: 90%;
-    margin: 20px auto;
-    border-collapse: collapse;
-    background-color: white;
+  width: 90%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background-color: white;
 }
 
 table thead {
-    background-color: #002147; /* Dark blue */
-    color: white;
+  background-color: #002147; /* Dark blue */
+  color: white;
 }
 
-table th, table td {
-    padding: 15px;
-    border: 1px solid #ddd;
-    text-align: center;
+table th,
+table td {
+  padding: 15px;
+  border: 1px solid #ddd;
+  text-align: center;
 }
 
 table tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
+  background-color: #f9f9f9;
 }
 
 /* Image Styling */
 table img {
-    width: 100px;  /* Set the desired width for all images */
-    height: 100px; /* Set the desired height for all images */
-    object-fit: cover;  /* Ensures the image fills the given width and height while maintaining aspect ratio */
-    border-radius: 5px; /* Slightly round the corners of the image */
+  width: 100px; /* Set the desired width for all images */
+  height: 100px; /* Set the desired height for all images */
+  object-fit: cover; /* Ensures the image fills the given width and height while maintaining aspect ratio */
+  border-radius: 5px; /* Slightly round the corners of the image */
 }
 
-
 table a {
-    color: #002147;
-    text-decoration: none;
-    font-weight: bold;
+  color: #002147;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 table a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 @media screen and (max-width: 768px) {
-    /* Responsive for smaller screens */
-    table, table thead, table tbody, table th, table td, table tr {
-        display: block;
-        width: 100%;
-    }
+  /* Responsive for smaller screens */
+  table,
+  table thead,
+  table tbody,
+  table th,
+  table td,
+  table tr {
+    display: block;
+    width: 100%;
+  }
 
-    table thead {
-        display: none;
-    }
+  table thead {
+    display: none;
+  }
 
-    table tr {
-        margin-bottom: 20px;
-    }
+  table tr {
+    margin-bottom: 20px;
+  }
 
-    table td {
-        text-align: right;
-        padding-left: 50%;
-        position: relative;
-    }
+  table td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
 
-    table td:before {
-        content: attr(data-label);
-        position: absolute;
-        left: 0;
-        width: 50%;
-        padding-left: 10px;
-        font-weight: bold;
-        text-align: left;
-        color: #002147;
-    }
+  table td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 10px;
+    font-weight: bold;
+    text-align: left;
+    color: #002147;
+  }
 }
 /* Spacing between action links (Edit and Delete) */
 .action-links a {
-    margin-right: 15px; /* Adjust the space between the links */
-    text-decoration: none; /* Optional: remove underline for cleaner look */
-    color: darkblue; /* Optional: change link color */
+  margin-right: 15px; /* Adjust the space between the links */
+  text-decoration: none; /* Optional: remove underline for cleaner look */
+  color: darkblue; /* Optional: change link color */
 }
 
 .action-links a:last-child {
-    margin-right: 0; /* Ensures the last link (Delete) doesn't have extra spacing */
+  margin-right: 0; /* Ensures the last link (Delete) doesn't have extra spacing */
 }

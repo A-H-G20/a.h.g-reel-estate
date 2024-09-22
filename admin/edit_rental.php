@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute();
     $result = $stmt->get_result();
     $rental = $result->fetch_assoc();
-    
+
     // Get new values or keep existing ones
     $description = htmlspecialchars($_POST['description']) ?: $rental['description'];
     $category = htmlspecialchars($_POST['category']) ?: $rental['category'];
@@ -83,37 +83,41 @@ $mysqli->close();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Edit Rental</title>
     <link rel="stylesheet" href="css/edit.css">
+    <link href="../image/local_image/logo.png" rel="icon">
 </head>
+
 <body>
-<header>
+    <header>
         <nav>
             <li><a href="dashboard.php">Home</a></li>
-            
+
 
             <select class="nav-menu" id="Buy-select" onchange="navigateToPage(this)">
                 <option selected disabled>Management</option>
-                <option  value="user_management.php">User Management</option>
-                <option  value="realtor_management.php">Realtor Management</option>      
-                <option value="admin_management.php">Admin Management</option>      
-                <option value="rent_management.php">Rent Management</option>      
-                <option value="buy_management.php">Buy Management</option>      
+                <option value="user_management.php">User Management</option>
+                <option value="realtor_management.php">Realtor Management</option>
+                <option value="admin_management.php">Admin Management</option>
+                <option value="rent_management.php">Rent Management</option>
+                <option value="buy_management.php">Buy Management</option>
             </select>
             <select class="nav-menu" id="Buy-select" onchange="navigateToPage(this)">
                 <option selected disabled>Reserved</option>
                 <option value="rent_table.php">Rent Reserved</option>
-                <option value="buy_table.php">Buy Reserved</option>      
+                <option value="buy_table.php">Buy Reserved</option>
             </select>
+            <li><a href="send_for_all.php">Send email</a></li>
             <li><a href="wallet.php">Wallet</a></li>
             <li><a href="settings.php">Settings</a></li>
             <li><a href="../logout.php">Logout</a></li>
         </nav>
     </header><br><br>
     <form action="" method="POST" enctype="multipart/form-data">
-    <h3>Edit Rental</h3>
+        <h3>Edit Rental</h3>
         <input type="text" name="description" value="<?php echo htmlspecialchars($rental['description']); ?>" required>
         <select name="category" required>
             <option value="apartment" <?php echo $rental['category'] == 'apartment' ? 'selected' : ''; ?>>Apartment</option>
@@ -124,14 +128,15 @@ $mysqli->close();
         <input type="number" name="price" value="<?php echo htmlspecialchars($rental['price']); ?>" required>
         <label for="is_rental">Is Rental?</label>
         <input type="checkbox" name="is_rental" value="1" <?php echo $rental['is_rental'] ? 'checked' : ''; ?>>
-        
+
         <h4>Upload New Images (Leave blank to keep existing)</h4>
         <input type="file" name="image1">
         <input type="file" name="image2">
         <input type="file" name="image3">
-        
+
         <button type="submit">Update Rental</button>
     </form>
     <script src="js/header.js"></script>
 </body>
+
 </html>
