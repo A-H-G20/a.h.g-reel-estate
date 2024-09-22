@@ -58,13 +58,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $mail->Port = 587;
 
                 // Set up the email content
-                $mail->setFrom('your_email@gmail.com', 'Your App Name');
+                $mail->setFrom('your_email@gmail.com', 'A.H.G');
                 $mail->addAddress($email, $name);
                 $mail->isHTML(true);
                 $mail->Subject = 'Wallet Amount Added';
                 $mail->Body = '<p>Dear <b>' . htmlspecialchars($name) . '</b>,</p>
                                <p>An amount of <b>' . htmlspecialchars($amount) . '</b> has been successfully added to your wallet.</p>
-                               <p>Regards,</p><p>Your App Name Administrator</p>';
+                               <p>Regards,</p><p>A.H.G Administrator</p>';
 
                 // Send email
                 $mail->send();
