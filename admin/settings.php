@@ -78,6 +78,7 @@ $user = mysqli_fetch_assoc($result);
       <button type="button" id="cancel-btn">Cancel</button>
     </div>
   </form>
+  <script src="js/header.js"></script>
 </div>
 
 <script>
