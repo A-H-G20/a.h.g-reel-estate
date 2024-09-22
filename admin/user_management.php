@@ -92,5 +92,6 @@ if ($result->num_rows > 0) {
             </tbody>
         </table>
     </div>
+    <script src="js/header.js"></script>
 </body>
 </html>
