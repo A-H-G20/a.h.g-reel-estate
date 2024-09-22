@@ -61,11 +61,16 @@ $traffic_stmt->close();
         <nav>
             <li><a href="dashboard.php">Home</a></li>
             
-            <li><a href="user_management.php">User Management</a></li>
-            <li><a href="realtor_management.php">Realtor Management</a></li>
-            <li><a href="admin_management.php">Admin Management</a></li>
-            <li><a href="rent_management.php">Rent Management</a></li>
-            <li><a href="buy_management.php">Buy Management</a></li>
+
+            <select class="nav-menu" id="Buy-select" onchange="navigateToPage(this)">
+                <option selected disabled>Management</option>
+                <option  value="user_management.php">User Management</option>
+                <option  value="realtor_management.php">Realtor Management</option>      
+                <option value="admin_management.php">Admin Management</option>      
+                <option value="rent_management.php">Rent Management</option>      
+                <option value="buy_management.php">Buy Management</option>      
+            </select>
+            
             <li><a href="wallet.php">Wallet</a></li>
             <li><a href="settings.php">Settings</a></li>
             <li><a href="../logout.php">Logout</a></li>
@@ -139,6 +144,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
-
+<script src="js/header.js"></script>
 </body>
 </html>

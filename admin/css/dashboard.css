@@ -1,38 +1,36 @@
-/* Reset some default styles */
-body, form, div, p, ul, li, img {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
 body {
-    background-color: #f9f9f9;
-    font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    min-height: 100vh;
 }
+
 
 header {
     background-color: #002147; /* Dark blue */
     color: white;
-    padding: 15px 0;
-    width: 100%;
-    text-align: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    padding: 15px 20px; /* Padding around the header */
+    display: flex;
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+  
 }
 
 nav {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    align-items: center; /* Align items vertically */
+    justify-content: center; /* Center the nav items */
 }
 
 nav li {
-    display: inline;
-    list-style: none;
+    list-style: none; /* Remove bullets from list items */
+    margin: 0 10px; /* Space between links */
 }
 
 nav a {
@@ -44,7 +42,35 @@ nav a {
 }
 
 nav a:hover {
-    color: #ffdd00; /* Golden highlight */
+    color: #ffdd00; /* Golden highlight on hover */
+}
+
+.nav-menu {
+    margin: 0 10px; /* Space between select menus and links */
+    padding: 10px; /* Padding inside the select */
+    border: none; /* Remove default border */
+    border-radius: 4px; /* Rounded corners */
+    background-color: #005599; /* Blue background */
+    color: white; /* Text color */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.nav-menu option {
+    background-color: #fff; /* Background for options */    
+    color: #333; /* Text color for options */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column; /* Stack items on small screens */
+        align-items: center; /* Center items in stacked layout */
+    }
+
+    nav li {
+        margin-bottom: 10px; /* Space between stacked items */
+    }
 }
 /* Overall container styling */
 .dash {
