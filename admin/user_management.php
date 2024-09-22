@@ -44,7 +44,11 @@ if ($result->num_rows > 0) {
                 <option value="rent_management.php">Rent Management</option>      
                 <option value="buy_management.php">Buy Management</option>      
             </select>
-            
+            <select class="nav-menu" id="Buy-select" onchange="navigateToPage(this)">
+                <option selected disabled>Reserved</option>
+                <option value="rent_table.php">Rent Reserved</option>
+                <option value="buy_table.php">Buy Reserved</option>      
+            </select>
             <li><a href="wallet.php">Wallet</a></li>
             <li><a href="settings.php">Settings</a></li>
             <li><a href="../logout.php">Logout</a></li>
