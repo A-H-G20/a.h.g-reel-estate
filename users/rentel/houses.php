@@ -52,6 +52,11 @@ $rentalResult = $mysqli->query($rentalQuery);
                 <option value="../buy/farmhouses.php">Farmhouses</option>
                 <option value="../buy/swimming_pool.php">Swimming Pool</option>           
             </select>
+            <select class="nav-menu" id="Buy-select" onchange="navigateToPage(this)">
+                <option selected disabled>My reserved</option>
+                <option value="../rent_table.php">Rent Reserved</option>
+                <option value="../buy_table.php">Buy Reserved</option>      
+            </select>
             <li><a href="../wallet.php">Wallet</a></li>
             <li><a href="../ask_for_realtor.php">Ask to be realtor</a></li>
             <li><a href="../settings.php">Settings</a></li>
